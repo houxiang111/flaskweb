@@ -5,7 +5,7 @@ import os
 class Config:
     FLASK_MAIL_SUBJECT='[FLASKY]'                                                                                         
     FLASK_MAIL_SENDER='houxiangikant@163.com'
-    FLASK_ADMIN=os.environ.get('FLASK_ADMIN')
+    FLASKY_ADMIN=os.environ.get('FLASK_ADMIN')
     SQLALCHEMY_COMMIT_IN_TEARDOWN = True
     SECRET_KEY = 'hard to guess string'
 
@@ -22,4 +22,8 @@ class Developmentconfig(Config):
     MAIL_PASSWORD =os.environ.get('mailpassword')
 
 
-config = {'development':Developmentconfig}
+class TestConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:19930119@127.0.0.1:3306/Testing'
+
+config = {'development':Developmentconfig,'test':TestConfig}
