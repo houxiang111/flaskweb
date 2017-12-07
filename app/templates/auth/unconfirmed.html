@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}武侠小说网 - 确认你的账户{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>
+        你好, {{ current_user.username }}!
+    </h1>
+    <h3>您还没有认证账号哦.</h3>
+    <p>
+        再去其他页面的时候，应该首先去认证一下邮件.
+        查看一下邮箱,看一看是否有新邮件 .
+    </p>
+    <p>
+        木有收到邮件?
+        <a href="{{ url_for('auth.resend_confirmation') }}">点击这里</a>
+    </p>
+</div>
+{% endblock %}

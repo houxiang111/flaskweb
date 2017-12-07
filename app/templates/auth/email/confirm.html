@@ -1,0 +1,7 @@
+<p>亲爱的 {{ user.username }},</p>
+<p><b>欢迎来到武侠小说网</b>!</p>
+<p>为了确认您的账户 <a href="{{ url_for('auth.confirm', token=token, _external=True) }}">请点击这里</a>.</p>
+<p>您也可以在浏览器中打开以下链接:</p>
+<p>{{ url_for('auth.confirm', token=token, _external=True) }}</p>
+<p>武侠小说团队</p>
+<p><small>Note: 回复此邮件,不受监控哦.</small></p>

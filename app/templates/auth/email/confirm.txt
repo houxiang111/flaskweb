@@ -1,0 +1,13 @@
+亲爱的 {{ user.username }},
+
+欢迎来到武侠小说网站!
+
+要想认证账户,请点击以下链接:
+
+{{ url_for('auth.confirm', token=token, _external=True) }}
+
+
+
+武侠小说团队
+
+Note: 对本邮件的答复.不受监控哦

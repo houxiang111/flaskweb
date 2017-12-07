@@ -17,10 +17,20 @@ class UserModelTestCase(unittest.TestCase):
     def test_password_verifycation(self):
         u = User(password = 'cat')
         self.assertTrue(u.verify_password('cat'))
-        self.assertFalse(u.verif_password('dog'))
+        self.assertFalse(u.verify_password('dog'))
 
 
-    def test_password_verifycation(self):
-            u = User(password = 'cat')
-            u2 = User(password = 'cat')
-            self.assertTrue(u.password_hash != u2.password_hash)
+    def test_password2_verifycation(self):
+        u = User(password = 'cat')
+        u2 = User(password = 'cat')
+        self.assertTrue(u.password_hash != u2.password_hash)
+
+    def test_token(self):
+        u = User(id = 23)
+        u2 = User(id = 234)
+        self.assertTrue(u.get_token() != u2.get_token())
+
+
+    def test_confirm(self):
+        u = User(id = 23)
+        self.assertTrue(u.confirm(u.get_token()))
